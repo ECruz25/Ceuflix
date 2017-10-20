@@ -1,0 +1,16 @@
+{
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "rules": {
+    "no-console": 0,
+    "comma-dangle": 1,
+    "no-unused-vars": 1
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 8
+  },
+  "plugins": ["html"]
+}
