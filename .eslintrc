@@ -3,8 +3,9 @@
     "es6": true,
     "browser": true
   },
-  "extends": "airbnb",
+  "extends": ["eslint:recommended", "google"],
   "rules": {
+    "linebreak-style": "off",
     "no-console": 0,
     "comma-dangle": 1,
     "no-unused-vars": 1

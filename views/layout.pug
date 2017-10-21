@@ -1,10 +1,10 @@
 doctype html
 html
   head
+    title= `${title} | ${h.siteName}`
     link(rel='stylesheet', href='/styles/styles.css')
     link(href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet")
     link(rel="icon" href="../public/img/logo.png")
-    title CEUFLIX
   body
     block navbar
     ul
@@ -15,7 +15,7 @@ html
       li
         a(href='/Series') Series
       li
-        a(href='/Series') Users
+        a(href='/Users') Users
 
     block content
 

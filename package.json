@@ -10,10 +10,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "mssql": "^4.1.0",
     "passport": "^0.4.0",
     "pug": "^2.0.0-rc.4",
     "request": "^2.83.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.9.0",
+    "eslint-config-google": "^0.9.1"
   }
 }

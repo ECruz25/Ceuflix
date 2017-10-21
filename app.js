@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const routes = require('./routes/index');
 const passport = require('passport');
+const sql = require('mssql');
+const helpers = require('./helpers');
 
 const app = express();
 app.use(
@@ -15,6 +17,12 @@ app.use(express.static('public'));
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use((req, res, next) => {
+  res.locals.h = helpers;
+  res.locals.currentPath = req.path;
+  next();
+});
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
