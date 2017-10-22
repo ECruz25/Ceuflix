@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  .inner
+  h2 #{title}
+  .users
+    each user in users
+      .user
+        p User ID:
+          span #{user.UserID}
+        p Name:
+          span #{user.UserName}

@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  .inner
+    h2= title
+    form(action="AddUser", method="POST" class="addUser")
+      label(for="id") id
+      input(type="number" name="id")
+      label(for="name") Name
+      input(type="text" name="name")
+      input(type="submit" value="Save →" class="button")

@@ -1,28 +1,35 @@
-const sql = require('mssql');
+const db = require('../core/db');
 
-const dbConfig = {
-  server: 'localhost\\EDWINSERVER2',
-  database: 'Ceuflix',
-  user: 'sa',
-  password: 'edwin',
-  port: 1443
+exports.getUsers = (req, res) => {
+  db.executeSql('SELECT * from [User]', data => {
+    res.render('users', { title: 'Users', users: data.recordset });
+    res.end();
+  });
 };
 
-exports.getUsers = async (req, res) => {
-  const conn = new sql.ConnectionPool(dbConfig);
-  const request = new sql.Request(conn);
-  conn.connect(function(err) {
-    if (err) {
-      console.log(err);
-      return;
+exports.getUser = (req, res) => {
+  db.executeSql(
+    `SELECT * FROM [User] WHERE [User].UserID = ${req.params.id}`,
+    data => {
+      console.log(req.params.id, data.recordset);
+      res.render('users', { title: 'Users', users: data.recordset });
+      res.end();
     }
-    request.query('SELECT * from [User]', function(err, data) {
-      if (err) {
-        console.log(err);
-      } else {
-        res.render('users', { title: 'Users', users: data.recordset });
-      }
-      conn.close();
-    });
-  });
+  );
+};
+
+exports.addUser = (req, res) => {
+  res.render('addUser', { title: 'Add User' });
+};
+
+exports.createUser = (req, res) => {
+  console.log(req.body.id, req.body.name);
+  db.executeSql(
+    `INSERT INTO [User] (UserID, UserName) VALUES (${req.body.id}, '${req.body
+      .name}')`,
+    data => {
+      res.redirect('/Users');
+      res.end();
+    }
+  );
 };

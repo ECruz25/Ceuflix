@@ -1,6 +1,7 @@
 body {
   font-family: 'Roboto', sans-serif;
   background-color: #141414;
+  color: white;
 }
 
 ul {
@@ -33,4 +34,29 @@ li a:hover {
 
 p {
   color: #ffffff;
+}
+
+.user {
+  align-content: center;
+  color: white;
+  /*Content - Width and height*/
+  width: 200px;
+  /*Border*/
+  border: 2px solid white;
+  /*Padding*/
+  padding: 10px;
+  /*Margin*/
+  margin: 100px auto 100px auto;
+}
+
+.addUser {
+  color: black;
+  background: white;
+  padding: 5rem;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
+}
+
+.inner {
+  max-width: 900px;
+  margin: 0 auto;
 }
