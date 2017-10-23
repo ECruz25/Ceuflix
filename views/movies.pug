@@ -1,9 +1,10 @@
 extends layout
 
 block content
-  .inner
-    .movies
-      ul
-        each movie in movies
-          li
-            a(href=`/watch/${movie.MovieVideo.split('.')[0]}`) #{movie.MovieName}
+  .movies
+    ul.movieCards
+      each movie in movies
+        li
+          .moviecard
+            a(href=`/watch/${movie.MovieVideo.split('.')[0]}`)
+              img(src="/img/Breaking-Bad.jpg", alt="")

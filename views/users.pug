@@ -1,17 +1,18 @@
 extends layout
 
 block content
-  div(class="addUserCard card")
-    a(href="/AddUser") +
-  each user in users
-    .card
-      a(href=`/User/${user.UserID}`)
-        if user.Photo
-          img(src=`/uploads/${user.Photo}`, alt="photo")
-        else
-          img(src=`/img/${user.Gender === 'M' ? 'avatar.png':'avatar-female.png'}`, alt="")
-        .info
-            p User ID:
-              span #{user.UserID}
-            p Name:
-              span #{user.UserName}
+  .container
+    div(class="addUserCard card")
+      a(href="/AddUser") +
+    each user in users
+      .card
+        a(href=`/User/${user.UserID}`)
+          if user.Photo
+            img(src=`/uploads/${user.Photo}`, alt="photo")
+          else
+            img(src=`/img/${user.Gender === 'M' ? 'avatar.png':'avatar-female.png'}`, alt="")
+          .info
+              p User ID:
+                span #{user.UserID}
+              p Name:
+                span #{user.UserName}
