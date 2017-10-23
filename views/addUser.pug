@@ -3,9 +3,20 @@ extends layout
 block content
   .inner
     h2= title
-    form(action="AddUser", method="POST" class="addUser")
+    form(action="AddUser", method="POST" class="addUser"
+    enctype="multipart/form-data")
       label(for="id") id
       input(type="number" name="id" required)
       label(for="name") Name
       input(type="text" name="name" required)
+      label(for="gender") Gender
+      select(name="gender")
+        option(value="Male") Male
+        option(value="Female") Female
+      label(for="userType") User Type
+      select(name="userType")
+        option(value="Admin") Admin
+        option(value="Customer") Customer
+      label(for="photo") Photo
+        input(type="file", name="photo" id="photo" accept="image/png, image/jpeg")
       input(type="submit" value="Save →" class="button")
