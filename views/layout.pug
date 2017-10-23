@@ -7,16 +7,21 @@ html
     link(rel="icon" href="../public/img/logo.png")
   body
     block navbar
-    ul
-      li
-        a(href='/') Movies
-      li
-        a(href='/Series') Series
-      li
-        a(href='/Users') Users
-    .content
+      nav.navbar
+        .navbar-container
+          ul.navbar-items
+            li
+              a(href='/' ) Movies
+            li
+              a(href='/Series') Series
+            li
+              a(href='/Users') Users
+            li
+              a(href='/MyAccount') Account
+
+    .container
       block content
 
-    block footer
-      footer.bottom
+      block footer
+        footer.bottom
 

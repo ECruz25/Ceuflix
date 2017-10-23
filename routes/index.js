@@ -6,7 +6,9 @@ const serieController = require('../controllers/serieController');
 const router = express.Router();
 
 router.get('/', movieController.getMovies);
-
+router.get('/testing', (req, res) => {
+  res.render('index');
+});
 router.get('/Users', userController.getUsers);
 router.get('/User/:id', userController.getUser);
 router.get('/AddUser', userController.addUser);

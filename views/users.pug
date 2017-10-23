@@ -1,12 +1,14 @@
 extends layout
 
 block content
-  .inner
-  h2 #{title}
-  .users
-    each user in users
-      .user
-        p User ID:
-          span #{user.UserID}
-        p Name:
-          span #{user.UserName}
+  div(class="addUserCard card")
+    a(href="/AddUser") +
+  each user in users
+    .card
+      a(href=`/User/${user.UserID}`)
+        img(src=`/img/${user.Gender === 'M' ? 'avatar.png':'avatar-female.png'}`, alt="")
+        .info
+            p User ID:
+              span #{user.UserID}
+            p Name:
+              span #{user.UserName}

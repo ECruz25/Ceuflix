@@ -8,28 +8,6 @@ const dbConfig = {
   port: 1443
 };
 
-// exports.executeSql = (sql, callback) => {
-//   const conn = new sqlDb.ConnectionPool(dbConfig);
-//   conn
-//     .connect()
-//     .then(() => {
-//       const request = new sqlDb.Request(conn);
-//       request
-//         .query(sql)
-//         .then(recordset => {
-//           callback(recordset);
-//         })
-//         .catch(err => {
-//           console.log(err);
-//           callback(null, err);
-//         });
-//     })
-//     .catch(err => {
-//       console.log(err);
-//       callback(null, err);
-//     });
-// };
-
 exports.executeSql = async (sqlQuery, callback) => {
   try {
     const conn = new sqlDb.ConnectionPool(dbConfig);
