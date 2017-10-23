@@ -2,7 +2,8 @@ extends layout
 
 block content
   .inner
-  h2 #{title}
-  .names
-    each movie in movies
-      h3 #{movie.MovieName}
+    .movies
+      ul
+        each movie in movies
+          li
+            a(href=`/watch/${movie.MovieVideo.split('.')[0]}`) #{movie.MovieName}

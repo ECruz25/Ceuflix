@@ -19,10 +19,14 @@ router.post(
   userController.resize,
   userController.createUser
 );
-router.get('/video', (req, res) => {
-  res.writeHead(200, { 'Content-Type': 'video/mp4' });
-  const video = fs.createReadStream('./public/video.mp4');
-  video.pipe(res);
-});
+router.get('/AddMovie', movieController.addMovie);
+router.post(
+  '/AddMovie',
+  movieController.upload,
+  movieController.configureMovie,
+  movieController.createMovie
+);
+
+router.get('/watch/:videoId', movieController.renderVideo);
 
 module.exports = router;

@@ -33,6 +33,10 @@ body {
   grid-template-columns: repeat(4, 1fr);
 }
 
+.movies a {
+  color: black;
+}
+
 li a {
   display: block;
   color: white;
@@ -41,7 +45,7 @@ li a {
   text-decoration: none;
 }
 
-a {
+.card a {
   color: white;
   text-decoration: none;
 }

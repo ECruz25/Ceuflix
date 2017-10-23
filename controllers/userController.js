@@ -28,7 +28,7 @@ exports.getUser = (req, res) => {
   db.executeSql(
     `SELECT * FROM [User] WHERE [User].UserID = ${req.params.id}`,
     data => {
-      console.log(req.params.id, data.recordset);
+      console.log(req.params.id, data.recordset[1]);
       res.render('users', { title: 'Users', users: data.recordset });
       res.end();
     }

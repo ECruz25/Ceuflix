@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  .inner
+    h2= title
+    form(action="AddMovie", method="POST" class="AddMovie"
+    enctype="multipart/form-data")
+      label(for="id") id
+      input(type="number" name="id" required)
+      label(for="name") Name
+      input(type="text" name="name" required)
+      label(for="video") Video
+        input(type="file", name="video" id="video" accept="video/mp4")
+      input(type="submit" value="Save →" class="button")
