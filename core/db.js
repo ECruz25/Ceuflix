@@ -16,7 +16,7 @@ exports.executeSql = async (sqlQuery, callback) => {
     const recordset = await request.query(sqlQuery);
     callback(recordset);
   } catch (err) {
-    console.log('There was an error');
+    console.log(`There was an error with the query: ${sqlQuery}`);
     console.log(err);
   }
 };

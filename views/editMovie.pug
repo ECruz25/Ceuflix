@@ -4,12 +4,12 @@ block content
   .inner
     h2= title
     .createBox
-      form(action="AddMovie", method="POST" class="AddMovie"
+      form(action="editMovie", method="POST" class="AddMovie"
       enctype="multipart/form-data")
         //-Hacer que automaticamente le ponga un id
         label(for="name") Movie Name
         input(type="text" name="name" required)
-        label(for="video") Video
-          input(type="file", name="video" id="video" accept="video/mp4")
+        label(for="photo") Photo🥟
+          input(type="file", name="photo" id="photo" accept="image/png, image/jpeg")
         label(for="")
         input(type="submit" value="Save →" class="button")

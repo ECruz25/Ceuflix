@@ -6,13 +6,11 @@ block content
       a(href="/AddUser") +
     each user in users
       .card
-        a(href=`/User/${user.UserID}`)
+        a(href=`/User/${user.Email}`)
           if user.Photo
-            img(src=`/uploads/${user.Photo}`, alt="photo")
-          else
+            img(src=`/uploads/${user.Photo}`, alt="")
+          else if user.Photo === 'undefined'
             img(src=`/img/${user.Gender === 'M' ? 'avatar.png':'avatar-female.png'}`, alt="")
           .info
-              p User ID:
-                span #{user.UserID}
               p Name:
-                span #{user.UserName}
+                span  #{user.Name}

@@ -81,7 +81,7 @@ p {
   width: 17vw;
 }
 
-.addUser {
+form {
   color: black;
   background: white;
   padding: 5rem;
@@ -241,4 +241,34 @@ img {
 
 .moviecard:hover {
   transform: scale(1.2);
+}
+
+.createBox form {
+  display: grid;
+  grid-template-columns: 300px 300px;
+  grid-template-rows: auto;
+  grid-template-areas: 'label input' 'label input' 'label input''label input''label .' 'button button;
+}
+
+.createBox label {
+  grid-area: 'label';
+}
+
+.createBox label iput {
+  grid-area: 'input';
+}
+
+.createBox input {
+  grid-area: 'input';
+  justify-self: center;
+}
+
+.createBox select {
+  grid-area: 'input';
+  justify-self: center;
+}
+
+.buttonContainer .button{
+  grid-area: 'button';
+  justify-self: stretch;
 }

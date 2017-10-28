@@ -1,10 +1,13 @@
-const db = require('../core/db');
+const express = require('express');
+const fs = require('fs');
+const passport = require('passport');
+const passwordHash = require('password-hash');
+const ensureLogin = require('connect-ensure-login');
 const multer = require('multer');
 const jimp = require('jimp');
 const uuid = require('uuid');
-const passport = require('passport');
-const localStrategy = require('passport-local').localStrategy;
-
+const db = require('../core/db');
+const router = express.Router();
 const multerOptions = {
   storage: multer.memoryStorage(),
   fileFilter(req, file, next) {
@@ -17,6 +20,11 @@ const multerOptions = {
   }
 };
 
+exports.registerUser = (req, res) => {
+  res.render('register');
+  res.end();
+};
+
 exports.getUsers = (req, res) => {
   db.executeSql('SELECT * from [User]', data => {
     res.render('users', { title: 'Users', users: data.recordset });
@@ -26,9 +34,8 @@ exports.getUsers = (req, res) => {
 
 exports.getUser = (req, res) => {
   db.executeSql(
-    `SELECT * FROM [User] WHERE [User].UserID = ${req.params.id}`,
+    `SELECT * FROM [User] WHERE [User].Email = '${req.params.email}'`,
     data => {
-      console.log(req.params.id, data.recordset[1]);
       res.render('users', { title: 'Users', users: data.recordset });
       res.end();
     }
@@ -56,14 +63,27 @@ exports.resize = async (req, res, next) => {
 };
 
 exports.createUser = (req, res) => {
-  console.log(req.body.userType, req.body.gender);
   db.executeSql(
-    `INSERT INTO [User] (UserID, UserName, Role, Gender, Photo) VALUES
-    (${req.body.id}, '${req.body.name}', '${req.body.userType}',
-      '${req.body.gender}', '${req.body.photo}')`,
+    `INSERT INTO [User] (Email, Password, Name, Photo, SubscriptionID) VALUES
+    ('${req.body.email}', '${passwordHash.generate(req.body.password)}', '${req
+      .body.name}', '${req.body.photo}', ${req.body.userSubscription})`,
     data => {
       res.redirect('/Users');
       res.end();
     }
   );
+};
+
+exports.login = (req, res) => {
+  res.render('login');
+};
+
+exports.loginUser = passport.authenticate('local-login', {
+  successRedirect: '/',
+  failureRedirect: '/login'
+});
+
+exports.logout = (req, res) => {
+  req.logout();
+  res.redirect();
 };

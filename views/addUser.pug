@@ -3,20 +3,30 @@ extends layout
 block content
   .inner
     h2= title
-    form(action="AddUser", method="POST" class="addUser"
-    enctype="multipart/form-data")
-      label(for="id") id
-      input(type="number" name="id" required)
-      label(for="name") Name
-      input(type="text" name="name" required)
-      label(for="gender") Gender
-      select(name="gender")
-        option(value="Male") Male
-        option(value="Female") Female
-      label(for="userType") User Type
-      select(name="userType")
-        option(value="Admin") Admin
-        option(value="Customer") Customer
-      label(for="photo") Photo
-        input(type="file", name="photo" id="photo" accept="image/png, image/jpeg")
-      input(type="submit" value="Save →" class="button")
+    .createBox
+      form(action="AddUser", method="POST" class="addUser"
+      enctype="multipart/form-data")
+        label(for="email") Email Address
+        input(type="email" name="email" required)
+        label(for="password") Password
+        input(type="password" name="password" required)
+        label(for="name") Name
+        input(type="text" name="name" required)
+        label(for="gender") Gender
+        select(name="gender")
+          option(value="Male") Male👨
+          option(value="Female") Female👩
+        label(for="userType") User Type
+        select(name="userType")
+          option(value="Admin") Admin👨‍💻
+          option(value="Customer") Customer
+        label(for="userSubscription") Subscription Type
+        select(name="userSubscription")
+          //- agregar que las personas puedan agregar mas informacion a las suscripciones
+          option(value="1") Movies Only 🎥
+          option(value="2") Series Only 📺
+          option(value="3") Movies/Series 😎
+        label(for="photo") Photo🥟
+          input(type="file", name="photo" id="photo" accept="image/png, image/jpeg")
+        .buttonContainer
+          input(type="submit" value="Save →" class="button")

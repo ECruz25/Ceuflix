@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  .inner
+    h2= title
+    .createBox
+      form(action="register", method="POST" class="addUser"
+      enctype="multipart/form-data")
+        label(for="email") Email Address
+        input(type="email" name="username" required)
+        label(for="password") Password
+        input(type="password", name="password")
+        .buttonContainer
+          input(type="submit" value="Save →" class="button")
