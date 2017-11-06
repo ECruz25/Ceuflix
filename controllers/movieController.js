@@ -4,6 +4,9 @@ const multer = require('multer');
 const uuid = require('uuid');
 const jimp = require('jimp');
 const fileS = require('file-system');
+const moment = require('moment');
+const path = require('path');
+const faker = require('faker');
 
 const multerOptions = {
   storage: multer.memoryStorage(),
@@ -18,21 +21,38 @@ const multerOptions = {
 };
 
 exports.getMovies = (req, res) => {
-  db.executeSql('SELECT * from [Movie]', (data, err) => {
-    if (err) {
-    } else {
-      res.render('movies', { title: 'Movies', movies: data.recordset });
-    }
+  db.executeSql('SELECT * from [Movie]', data => {
+    res.render('movies', {
+      title: 'Movies',
+      movies: data.recordset,
+      user: req.user
+    });
     res.end();
   });
 };
 
 exports.renderVideo = (req, res) => {
-  res.writeHead(200, { 'Content-Type': 'video/mp4' });
-  const video = fs.createReadStream(
-    `./public/uploads/videos/${req.params.videoId}.mp4`
+  // console.log(req.params);
+  db.executeSql(
+    `SELECT * from [Movie] WHERE MovieID = ${req.params.videoId}`,
+    data => {
+      const videoFile = data.recordset[0].MovieVideo;
+      res.sendFile(path.join(__dirname, '../public/uploads/videos', videoFile));
+    }
   );
-  video.pipe(res);
+};
+
+exports.addPlayRecord = (req, res, next) => {
+  db.executeSql(
+    `INSERT INTO [UserVideoHistory] ([User] ,[Movie] ,[Date]) VALUES ('${req
+      .user.Email}', '${req.params.videoId}', '${moment().format(
+      'YYYY-MM-DD hh:mm:ss'
+    )}') `,
+    data => {
+      console.log('added Record');
+      res.redirect(`/watchNow/${req.params.videoId}`);
+    }
+  );
 };
 
 exports.upload = multer(multerOptions).single('video');
@@ -60,8 +80,9 @@ exports.configureMovie = async (req, res, next) => {
 exports.createMovie = (req, res) => {
   console.log(req.body.userType, req.body.gender);
   db.executeSql(
-    `INSERT INTO [Movie] (MovieID, MovieName, MovieVideo) VALUES
-    (${req.body.id}, '${req.body.name}', '${req.body.video}')`,
+    `INSERT INTO [Movie] (MovieID, MovieName, MovieVideo, ReleaseDate) VALUES
+    (${req.body.id}, '${req.body.name}', '${req.body
+      .video}',0,'${moment().format('YYYY-MM-DD hh:mm:ss')})`,
     data => {
       res.redirect('/');
       res.end();
@@ -72,3 +93,39 @@ exports.createMovie = (req, res) => {
 exports.addMovie = (req, res) => {
   res.render('createMovie', { title: 'Add Movie' });
 };
+
+exports.editMovie = (req, res) => {
+  console.log(req.params.videoId);
+  db.executeSql(
+    `SELECT * from [Movie] WHERE [MovieID] = ${req.params.videoId}`,
+    (data, err) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render('editMovie', {
+          title: `Edit ${data.recordset[0].MovieName}`,
+          movie: data.recordset[0]
+        });
+      }
+      res.end();
+    }
+  );
+};
+
+exports.generateRandomMovies = (req, res) => {
+  for (let x = 0; x < 1000; x++) {
+    db.executeSql(
+      `INSERT INTO [Movie] (MovieID, MovieName, MovieVideo, ReleaseDate) VALUES
+      (${faker.random.number()}, '${faker.random.words()}','video.mp4','${moment().format(
+        'YYYY-MM-DD hh:mm:ss'
+      )}')`,
+      data => {
+        console.log(`Movie${x} created`);
+      }
+    );
+  }
+  res.redirect('/');
+  res.end();
+};
+
+// 44 -> round(44/10)*10

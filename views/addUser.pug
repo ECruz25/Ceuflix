@@ -14,8 +14,8 @@ block content
         input(type="text" name="name" required)
         label(for="gender") Gender
         select(name="gender")
-          option(value="Male") Male👨
-          option(value="Female") Female👩
+          option(value="M") Male👨
+          option(value="F") Female👩
         label(for="userType") User Type
         select(name="userType")
           option(value="Admin") Admin👨‍💻
@@ -23,9 +23,9 @@ block content
         label(for="userSubscription") Subscription Type
         select(name="userSubscription")
           //- agregar que las personas puedan agregar mas informacion a las suscripciones
-          option(value="1") Movies Only 🎥
-          option(value="2") Series Only 📺
-          option(value="3") Movies/Series 😎
+          option(value=1) Movies Only 🎥
+          option(value=2) Series Only 📺
+          option(value=3) Movies/Series 😎
         label(for="photo") Photo🥟
           input(type="file", name="photo" id="photo" accept="image/png, image/jpeg")
         .buttonContainer

@@ -1,7 +1,32 @@
-form(action="login", method="post")
-  label(for="email") Email Address
-  input(type="email", name="email" required)
-  label(for="password") Password
-  input(type="password", name="password" required)
-  input(type="submit" value="Save →" class="button")
+doctype html
+html
+  head
+    title= `Login | ${h.siteName}`
+    link(rel='stylesheet', href='/styles/styles.css')
+    link(href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet")
+  body
+    .loginContainer
+      .loginForm
+        form(action="login", method="post" class="login-form")
+          label(for="email")
+            span Email Address
+            input(type="email", name="email" required)
+          label(for="password")
+            span Password
+            input(type="password", name="password" required)
+          span Not a customer yet?
+            a(href="/register") Signup Now!
+          input(type="submit" value="Login →" class="button login-button")
+
+
+
+
+
+
+
+
+
+
+
+
 

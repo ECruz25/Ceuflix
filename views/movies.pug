@@ -6,5 +6,8 @@ block content
       each movie in movies
         li
           .moviecard
-            a(href=`/watch/${movie.MovieVideo.split('.')[0]}`)
+            a(href=`/watch/${movie.MovieID}`)
               img(src="/img/Breaking-Bad.jpg", alt="")
+              if user.Role === 'Admin'
+                .options
+                  a(href=`/editMovie/${movie.MovieID}`) Edit✏

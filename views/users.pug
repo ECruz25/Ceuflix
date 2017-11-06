@@ -1,16 +1,16 @@
 extends layout
 
 block content
-  .container
+  div(class="container users-cards")
     div(class="addUserCard card")
       a(href="/AddUser") +
     each user in users
       .card
         a(href=`/User/${user.Email}`)
-          if user.Photo
+          if user.Photo === 'undefined'
+            img(src=`/img/${user.Gender === 'F' ? 'avatar-female.png':'avatar.png'}`, alt="")
+          else if user.Photo
             img(src=`/uploads/${user.Photo}`, alt="")
-          else if user.Photo === 'undefined'
-            img(src=`/img/${user.Gender === 'M' ? 'avatar.png':'avatar-female.png'}`, alt="")
           .info
               p Name:
                 span  #{user.Name}

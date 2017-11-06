@@ -10,16 +10,18 @@ const db = require('../core/db');
 const router = express.Router();
 
 router.get('/', ensureLogin.ensureLoggedIn(), movieController.getMovies);
-router.get(
-  '/Register',
-  ensureLogin.ensureLoggedIn(),
-  userController.registerUser
-);
+
+router.get('/Register', userController.registerUser);
 router.post(
   '/Register',
-  ensureLogin.ensureLoggedIn(),
-  userController.createUser
+  userController.upload,
+  userController.resize,
+  userController.register
 );
+
+router.get('/Series', (req, res) => {
+  res.redirect('/');
+});
 router.get('/Users', ensureLogin.ensureLoggedIn(), userController.getUsers);
 router.get('/User/:id', ensureLogin.ensureLoggedIn(), userController.getUser);
 router.get('/AddUser', ensureLogin.ensureLoggedIn(), userController.addUser);
@@ -30,24 +32,41 @@ router.post(
   userController.resize,
   userController.createUser
 );
-router.get('/AddMovie', ensureLogin.ensureLoggedIn(), movieController.addMovie);
+router.get(
+  '/AddMovie',
+  ensureLogin.ensureLoggedIn(),
+  userController.verifyAdmin,
+  movieController.addMovie
+);
 router.post(
   '/AddMovie',
   movieController.upload,
   movieController.configureMovie,
   movieController.createMovie
 );
-
 router.get(
   '/watch/:videoId',
   ensureLogin.ensureLoggedIn(),
+  movieController.addPlayRecord
+);
+router.get(
+  '/watchNow/:videoId',
+  ensureLogin.ensureLoggedIn(),
   movieController.renderVideo
 );
-router.get('/Login', userController.login);
+router.get(
+  '/editMovie/:videoId',
+  ensureLogin.ensureLoggedIn(),
+  movieController.editMovie
+);
+router.get('/Login', ensureLogin.ensureNotLoggedIn(), userController.login);
 router.post('/login', userController.loginUser);
 router.get('/logout', userController.logout);
 router.get('/profile', ensureLogin.ensureLoggedIn(), (req, res) => {
   res.render('users', { user: req.user });
 });
+router.get('/generateRandomUsers', userController.generateRandomUsers);
+router.get('/updateSubscriptionDate', userController.updateSubscriptionDate);
+router.get('/generateRandomMovies', movieController.generateRandomMovies);
 
 module.exports = router;

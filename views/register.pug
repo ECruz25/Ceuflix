@@ -1,14 +1,28 @@
-extends layout
-
-block content
-  .inner
-    h2= title
-    .createBox
-      form(action="register", method="POST" class="addUser"
-      enctype="multipart/form-data")
-        label(for="email") Email Address
-        input(type="email" name="username" required)
-        label(for="password") Password
-        input(type="password", name="password")
-        .buttonContainer
-          input(type="submit" value="Save →" class="button")
+doctype html
+html
+  head
+    title= `Login | ${h.siteName}`
+    link(rel='stylesheet', href='/styles/styles.css')
+    link(href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet")
+  body
+    block content
+      .inner
+        h2= title
+        .registerBox
+          form(action="Register", method="POST" class="addUser"
+          enctype="multipart/form-data")
+            label(for="email") Email Address
+              input(type="email" name="email" required)
+            label(for="password") Password
+              input(type="password" name="password" required)
+            label(for="name") Name
+              input(type="text" name="name" required)
+            label(for="gender") Gender
+              select(name="gender")
+                option(value="Male") Male👨
+                option(value="Female") Female👩
+            label(for="dob") Date Of Birth
+              input(type="date", name="dob")
+            label(for="photo") Photo🥟
+              input(type="file", name="photo" id="photo" accept="image/png, image/jpeg")
+            input(type="submit" value="Register →" class="button submit-button")
