@@ -1,5 +1,5 @@
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   /*background-color: #141414;
   color: white;*/
   margin: 0;
@@ -167,10 +167,10 @@ form {
   width: 100%;
 }
 
-.moviecard .options a {
+.moviecard .options span {
   position: absolute;
   bottom: 8px;
-  left: 16px;
+  left: -150px;
 }
 
 .moviecard .options a:nth-child(3) {
@@ -194,25 +194,25 @@ form {
 }
 
 .createBox label {
-  grid-area: 'label';
+  grid-area: "label";
 }
 
 .createBox label iput {
-  grid-area: 'input';
+  grid-area: "input";
 }
 
 .createBox input {
-  grid-area: 'input';
+  grid-area: "input";
   justify-self: center;
 }
 
 .createBox select {
-  grid-area: 'input';
+  grid-area: "input";
   justify-self: center;
 }
 
 .buttonContainer .button {
-  grid-area: 'button';
+  grid-area: "button";
   justify-self: stretch;
 }
 
@@ -230,10 +230,10 @@ form {
   width: 450px;
 }
 
-input[type='email'],
-input[type='password'],
-input[type='text'],
-input[type='date'],
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="date"],
 select {
   width: 100%;
   padding: 12px 20px;

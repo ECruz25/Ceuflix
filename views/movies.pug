@@ -10,4 +10,4 @@ block content
               img(src="/img/Breaking-Bad.jpg", alt="")
               if user.Role === 'Admin'
                 .options
-                  a(href=`/editMovie/${movie.MovieID}`) Edit✏
+                  span #{movie.MovieName}

@@ -7,10 +7,10 @@ block content
     each user in users
       .card
         a(href=`/User/${user.Email}`)
-          if user.Photo === 'undefined'
-            img(src=`/img/${user.Gender === 'F' ? 'avatar-female.png':'avatar.png'}`, alt="")
-          else if user.Photo
+          if user.Photo
             img(src=`/uploads/${user.Photo}`, alt="")
+          else
+            img(src=`/img/${user.Gender === 'F' ? 'avatar-female.png':'avatar.png'}`, alt="")
           .info
               p Name:
                 span  #{user.Name}

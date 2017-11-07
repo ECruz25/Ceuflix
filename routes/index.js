@@ -68,5 +68,6 @@ router.get('/profile', ensureLogin.ensureLoggedIn(), (req, res) => {
 router.get('/generateRandomUsers', userController.generateRandomUsers);
 router.get('/updateSubscriptionDate', userController.updateSubscriptionDate);
 router.get('/generateRandomMovies', movieController.generateRandomMovies);
+router.get('/generateViews', userController.generateViews);
 
 module.exports = router;

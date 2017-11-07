@@ -1,7 +1,7 @@
 const sqlDb = require('mssql');
 
 const dbConfig = {
-  server: 'localhost\\EDWINSERVER2',
+  server: 'localhost\\SQLSERVER',
   database: 'Ceuflix',
   user: 'sa',
   password: 'edwin',
