@@ -1,0 +1,406 @@
+/* ---------------------------------------------------------------- /
+*                             Variables
+* ---------------------------------------------------------------- */
+
+/*------------------------------------*\
+    == Colors
+\*------------------------------------*/
+
+/*------------------------------------*\
+    == Config
+\*------------------------------------*/
+
+/**
+* base/_soft-reset
+*/
+
+/**
+* base/_typography
+*/
+
+/**
+* base/_links
+*/
+
+/**
+* module/_focus
+*/
+
+/**
+* module/_form
+*/
+
+/**
+* module/_button
+*/
+
+/**
+* module/_info-box
+*/
+
+/**
+* module/_input-file
+*/
+
+/**
+* module/_top-header
+*/
+
+/**
+* layout/_
+*/
+
+/* --------------------------------------------------------------- */
+
+/* == Soft reset                                                   */
+
+/* --------------------------------------------------------------- */
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  height: 100%;
+  margin: 0;
+  font-family: Lato, "HelveticaNeue-Light", "Helvetica Neue Light",
+    "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: rem(16);
+  font-weight: 400;
+  line-height: 1.625em;
+  color: #2b2b2b;
+  background-color: #fff;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+[hidden],
+template {
+  display: none;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+img {
+  height: auto;
+  vertical-align: middle;
+  border: 0;
+}
+
+blockquote,
+figure {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+/*------------------------------------*\
+            Fixs for Firefox
+\*------------------------------------*/
+
+/**
+* Put an element min-height to 100vh on Firefox
+* ---------------------------------------------
+* Exemple of use :
+* @include firefox-message("#home header");
+*/
+
+/**
+* Put an element to a specified min-height on firefox
+* ---------------------------------------------------
+* Exemple of use :
+* @include firefox-min-height("#home header", "100vh");
+*/
+
+/* --------------------------------------------------------------- */
+
+/* == Module grid                                                  */
+
+/* --------------------------------------------------------------- */
+
+/*------------------------------------*\
+    == Wrapper
+\*------------------------------------*/
+
+.wrapper {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 1600px) {
+  .wrapper {
+    max-width: 1200px;
+  }
+}
+
+@media (max-width: 540px) {
+  .wrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/*------------------------------------*\
+    == Display class
+\*------------------------------------*/
+
+.table,
+.table-fixed {
+  display: table;
+  width: 100%;
+}
+
+.table-fixed {
+  table-layout: fixed;
+}
+
+.table-auto,
+.table-auto-fixed {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.table-auto-fixed {
+  table-layout: fixed;
+}
+
+.cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.cell.top {
+  vertical-align: top;
+}
+
+.inbl {
+  display: inline-block;
+}
+
+.bl {
+  display: block;
+}
+
+@media (max-width: 540px) {
+  .table,
+  .table-fixed,
+  .table-auto,
+  .table-auto-fixed,
+  .cell {
+    display: block;
+    text-align: center;
+  }
+}
+
+.text-right {
+  text-align: right;
+}
+
+/*------------------------------------*\
+        Top header layout module
+\*------------------------------------*/
+
+/**
+* Create a top header element to extend
+* -------------------------------------
+* Exemple of use :
+* @include top-header($img);
+*/
+
+/**
+* Create p for top header element to extend
+* -----------------------------------------
+* Exemple of use :
+* @include top-header-p;
+*/
+
+/**
+* Create a full header element to extend
+* --------------------------------------
+* Exemple of use :
+* @include full-header($img);
+*/
+
+/**
+* Create a full header color element to extend
+* --------------------------------------------
+* Exemple of use :
+* @include full-header-color($color);
+*/
+
+.stage {
+  display: table;
+  background-color: #9261df;
+  background-size: cover;
+  min-height: 100vh;
+  width: 100%;
+  text-align: center;
+  margin: auto;
+  vertical-align: middle;
+  transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 540px) {
+  .stage {
+    display: table;
+  }
+  .stage .cell {
+    display: table-cell;
+  }
+}
+
+.stage.faded {
+  display: table;
+  background-color: #6434a2;
+  background-size: cover;
+  min-height: 100vh;
+  width: 100%;
+  text-align: center;
+  margin: auto;
+  vertical-align: middle;
+}
+
+@media (max-width: 540px) {
+  .stage.faded {
+    display: table;
+  }
+  .stage.faded .cell {
+    display: table-cell;
+  }
+}
+
+_:-moz-tree-row(hover),
+.stage {
+  height: 100vh;
+}
+
+.searchbar {
+  position: relative;
+}
+
+.searchbar.clicked .btn-search {
+  border-radius: 0 40px 40px 0;
+  margin-left: 115px;
+}
+
+.searchbar.clicked .btn-extended {
+  margin-left: -185px;
+  width: 300px;
+  padding: 20px 30px;
+  opacity: 1;
+  border-radius: 40px 0 0 40px;
+}
+
+.searchbar .btn-search {
+  position: absolute;
+  background-color: #00d7d8;
+  color: white;
+  width: 70px;
+  height: 70px;
+  left: 50%;
+  margin-left: -35px;
+  top: 50%;
+  margin-top: -35px;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+
+.searchbar .btn-search:before {
+  position: absolute;
+  content: "";
+  display: block;
+  top: 24px;
+  left: 24px;
+  width: 15px;
+  height: 15px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 0px 3px #fff;
+}
+
+.searchbar .btn-search:after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 4px;
+  top: 42px;
+  left: 37px;
+  background-color: #fff;
+  transform: rotateZ(45deg);
+  border-radius: 3px;
+}
+
+.searchbar .btn-extended {
+  position: absolute;
+  width: 0px;
+  height: 70px;
+  left: 50%;
+  margin-left: 35px;
+  top: 50%;
+  margin-top: -35px;
+  border-radius: 40px;
+  padding: 0;
+  font-size: 16px;
+  border: none;
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+}
+
+.searchbar .btn-extended:focus {
+  outline-width: 0px;
+}
+
+.credit {
+  position: absolute;
+  bottom: 0;
+  background-color: #fff;
+  padding: 5px 20px;
+}

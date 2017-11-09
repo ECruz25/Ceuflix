@@ -5,7 +5,7 @@ const dbConfig = {
   database: 'Ceuflix',
   user: 'sa',
   password: 'edwin',
-  port: 1443
+  port: 1443,
 };
 
 exports.executeSql = async (sqlQuery, callback) => {

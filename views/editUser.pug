@@ -3,3 +3,19 @@ extends layout
 block content
   .inner
     h2= title
+    .registerBox
+      form(action=`./editUser/${edit.Email}`, method="POST" class="addUser normal-form"
+      enctype="multipart/form-data")
+        label(for="password") Password
+          input(type="password" name="password" required value="")
+        label(for="name") Name
+          input(type="text" name="name" required value=edit.Name)
+        label(for="gender") Gender
+          select(name="gender" value=edit.Gender required)
+            option(value="Male") Male👨
+            option(value="Female") Female👩
+        label(for="dob") Date Of Birth
+          input(type="date", name="dob" required valued=edit.DOB)
+        label(for="photo") Photo🥟
+          input(type="file", name="photo" id="photo" accept="image/png, image/jpeg")
+        input(type="submit" value="Save →" class="button submit-button")

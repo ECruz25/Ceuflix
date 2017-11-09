@@ -12,14 +12,30 @@ html
           ul.navbar-items
             li
               a(href='/' ) Movies
-            li
-              a(href='/Series') Series
+            if title === "Movies"
+              li
+                a(href='/addMovie') Add Movie
             li
               a(href='/Users') Users
             li
-              a(href='/MyAccount') Account
+              a(href='/Logout') LogOut
+            if title === 'Movies'
+              li
+                .searchBar
+                  form(action="/movies/", method="GET" class="searchForm")
+                    input(type="text", class="btn-extended" placeholder="search" name="searchQuery")
+                    .btn-search
+            else if title === 'Users'
+              li
+                .searchBar
+                  form(action="/Users/searchUser/", method="GET" class="searchForm")
+                    input(type="text", class="btn-extended" placeholder="search" name="search")
+                    .btn-search
+            li
+              a(href=`/Users/${'Edwin'}`) Search
       block content
 
       block footer
         footer.bottom
+    script(type="text/javascript" src="lib/jquery-2.1.4.js")
 

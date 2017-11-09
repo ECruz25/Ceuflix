@@ -17,7 +17,12 @@ const multerOptions = {
     if (isPhoto) {
       next(null, true);
     } else {
-      next({ message: "That filetype is not supported" }, false);
+      next(
+        {
+          message: "That filetype is not supported"
+        },
+        false
+      );
     }
   }
 };
@@ -28,24 +33,44 @@ exports.registerUser = (req, res) => {
 };
 
 exports.getUsers = (req, res) => {
-  db.executeSql("SELECT * from [User]", data => {
-    res.render("users", { title: "Users", users: data.recordset });
+  db.executeSql("SELECT TOP(100)* from [User]", data => {
+    res.render("users", {
+      title: "Users",
+      users: data.recordset
+    });
     res.end();
   });
 };
 
 exports.getUser = (req, res) => {
   db.executeSql(
-    `SELECT * FROM [User] WHERE [User].Email = '${req.params.email}'`,
+    `SELECT TOP (50) * FROM [User] WHERE [User].Email = '${req.params.email}'`,
     data => {
-      res.render("users", { title: "Users", users: data.recordset });
+      res.render("editUser", {
+        title: `Edit user: ${req.params.email}`,
+        edit: data.recordset[0]
+      });
       res.end();
     }
   );
 };
 
+exports.editUser = (req, res) => {
+  db.executeSql(
+    `UPDATE Customers SET Name= ${req.params.Name}, Password=${req.params
+      .password}, Gender=${req.params.gender}, DOB=${req.params.dob} Photo=${req
+      .params.photo} WHERE Email = ${req.params.email}`,
+    data => {
+      console.log(req.params);
+      res.redirect("/Users");
+    }
+  );
+};
+
 exports.addUser = (req, res) => {
-  res.render("addUser", { title: "Add User" });
+  res.render("addUser", {
+    title: "Add User"
+  });
 };
 
 exports.upload = multer(multerOptions).single("photo");
@@ -196,32 +221,6 @@ exports.updateSubscriptionDate = (req, res) => {
 };
 
 exports.generateViews = (req, res) => {
-  // db.executeSql(`Select Email FROM [User]`, data => {
-  //   for (email of data.recordset) {
-  //     const amountPerUser = Math.floor((Math.random() * 10));
-  //     for (let x = 0; x < amountPerUser; x++) {
-  //       db.executeSql(`Select MovieID FROM [Movie]`, data1 => {
-  //         for (movie in data1.recordset) {
-  //           const amountPerMovie =Math.floor((Math.random() * 10));
-  //           for (let y = 0; y < amountPerMovie; y++) {
-  //             console.log('y');
-  //             // const subdate1 = new Date(
-  //             //   faker.date.between("2016-01-01", "2017-11-09")
-  //             // );
-  //             // const subDate2 = `${date.getFullYear() + 1}-${date.getMonth() +
-  //             //   1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
-  //             // db.executeSql(
-  //             //   `INSERT INTO [UserVideoHistory] ([User], [Movie],[Date]) VALUES ('${email.Email}', '${movie.MovieID}', '${subDate2}')`,
-  //             //   data2 => {
-  //             //     console.log('View Created')
-  //             //   }
-  //             // );
-  //           }
-  //         }
-  //       });
-  //     }
-  //   }
-  // });
   db.executeSql(`Select * FROM [User]`, data => {
     const userAmount = Object.keys(data.recordset).length;
     for (let x = 0; x < 500; x++) {
@@ -264,4 +263,13 @@ exports.generateViews = (req, res) => {
     }
     res.send("Helooo");
   });
+};
+
+exports.search = (req, res) => {
+  db.executeSql(
+    `SELECT * FROM [User] WHERE Name LIKE '%${req.query.search}%'`,
+    data => {
+      res.render("Users", { title: "Users", users: data.recordset });
+    }
+  );
 };

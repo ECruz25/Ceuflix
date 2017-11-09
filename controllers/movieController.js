@@ -127,5 +127,11 @@ exports.generateRandomMovies = (req, res) => {
   }
   res.send("/");
 };
-
-// 44 -> round(44/10)*10
+exports.search = (req, res) => {
+  db.executeSql(
+    `SELECT * FROM [Movies] WHERE MovieName LIKE '%${req.query.search}%'`,
+    data => {
+      res.render("Users", { title: "Movies", movies: data.recordset });
+    }
+  );
+};
