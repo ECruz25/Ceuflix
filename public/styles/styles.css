@@ -9,269 +9,541 @@ button {
   cursor: pointer;
 }
 
-.navbar {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  justify-content: center;
-  align-content: center;
-  background-color: rgba(0, 0, 0, 0.8);
-  top: 0;
-  width: 100%;
-  transition: all 0.5s;
-  position: relative;
-  z-index: 1;
-}
+@media screen and (max-width: 1440px) {
+  .navbar {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    justify-content: center;
+    align-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+    width: 100%;
+    transition: all 0.5s;
+    position: relative;
+    z-index: 1;
+  }
 
-.navbar-container {
-  margin: 0 auto;
-  max-width: 980px;
-  padding: 0 22px;
-  position: relative;
-}
+  .navbar-container {
+    margin: 0 auto;
+    max-width: 980px;
+    padding: 0 22px;
+    position: relative;
+  }
 
-.navbar-items {
-  display: flex;
-  margin: 0;
-  padding: 0;
-  grid-area: navbar;
-  display: grid;
-  list-style-type: none;
-  /*  background-color: #db0000;*/
-  grid-template-columns: repeat(5, 1fr);
-}
+  .navbar-items {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    grid-area: navbar;
+    display: grid;
+    list-style-type: none;
+    /*  background-color: #db0000;*/
+    grid-template-columns: repeat(6, 1fr);
+  }
 
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
 
-.card a {
-  color: white;
-  text-decoration: none;
-}
+  .card a {
+    color: white;
+    text-decoration: none;
+  }
 
-li a:hover {
-  color: rgb(168, 167, 167);
-}
-/*
+  li a:hover {
+    color: rgb(168, 167, 167);
+  }
+  /*
 p {
   color: #ffffff;
 }
 */
-.user {
-  align-content: center;
-  color: white;
-  /*Content - Width and height*/
-  width: 200px;
-  /*Border*/
-  border: 2px solid white;
-  /*Padding*/
-  padding: 10px;
-  /*Margin*/
-  margin: 100px auto 100px auto;
-}
 
-.addUserCard {
-  font-size: 150px;
-  text-align: center;
-  /* width: 17vw; */
-}
+  .user {
+    align-content: center;
+    color: white;
+    /*Content - Width and height*/
+    width: 200px;
+    /*Border*/
+    border: 2px solid white;
+    /*Padding*/
+    padding: 10px;
+    /*Margin*/
+    margin: 100px auto 100px auto;
+  }
 
-.normal-form {
-  color: black;
-  background: white;
-  padding: 5rem;
-  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
-  display: block;
-}
+  .addUserCard {
+    font-size: 150px;
+    text-align: center;
+    /* width: 17vw; */
+  }
 
-.inner {
-  margin: 0 auto;
-}
-.container {
-  padding: 40px;
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: auto;
-  grid-auto-flow: row;
-  padding-top: 50px;
-  align-items: start;
-  grid-row-gap: 50px;
-}
-.card {
-  align-self: center;
-  /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-  /* transition-delay: 200ms; */
-  border-radius: 5px; /* 5px rounded corners */
-  margin: 1vw;
-  /* width: 250px; */
-  background-color: #6d6d6d;
-}
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
-  transform: scale(1.2);
-  color: white;
-}
+  .normal-form {
+    color: black;
+    background: white;
+    padding: 5rem;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
+    display: block;
+  }
 
-.users-cards .card img {
-  width: 100%;
-  height: 50%;
-  border-radius: 5px 5px 0 0;
-}
+  .inner {
+    margin: 0 auto;
+  }
 
-.info {
-  padding: 2px 16px;
-}
+  .container {
+    padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: auto;
+    grid-auto-flow: row;
+    padding-top: 50px;
+    align-items: start;
+    grid-row-gap: 50px;
+  }
 
-.movies {
-  padding-top: 20px;
-}
+  .card {
+    align-self: center;
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    /* transition-delay: 200ms; */
+    border-radius: 5px;
+    /* 5px rounded corners */
+    margin: 1vw;
+    /* width: 250px; */
+    background-color: #6d6d6d;
+  }
 
-.movies ul {
-  list-style-type: none;
-  text-decoration: none;
-}
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
+    transform: scale(1.2);
+    color: white;
+  }
 
-.movieCards {
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-auto-rows: auto;
-}
+  .users-cards .card img {
+    width: 100%;
+    height: 50%;
+    border-radius: 5px 5px 0 0;
+  }
 
-.moviecard {
-  color: black;
-  /*width: 255px;
+  .info {
+    padding: 2px 16px;
+  }
+
+  .movies {
+    padding-top: 20px;
+  }
+
+  .movies ul {
+    list-style-type: none;
+    text-decoration: none;
+  }
+
+  .movieCards {
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: auto;
+  }
+
+  .moviecard {
+    color: black;
+    /*width: 255px;
   height: 200px;*/
-  transition-delay: 200ms;
-  transition: 0.3s;
+    transition-delay: 200ms;
+    transition: 0.3s;
+  }
+
+  .moviecard img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+  }
+
+  .moviecard .options {
+    display: none;
+    position: relative;
+    width: 100%;
+  }
+
+  .moviecard .options span {
+    position: absolute;
+    bottom: 8px;
+    left: -150px;
+  }
+
+  .moviecard .options a:nth-child(3) {
+    left: 130px;
+  }
+
+  .moviecard:hover {
+    transform: scale(1.2);
+    color: black;
+  }
+
+  .moviecard:hover .options {
+    color: white;
+    display: inline;
+  }
+
+  .createBox form {
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: auto;
+  }
+
+  .createBox label {
+    grid-area: "label";
+  }
+
+  .createBox label iput {
+    grid-area: "input";
+  }
+
+  .createBox input {
+    grid-area: "input";
+    justify-self: center;
+  }
+
+  .createBox select {
+    grid-area: "input";
+    justify-self: center;
+  }
+
+  .buttonContainer .button {
+    grid-area: "button";
+    justify-self: stretch;
+  }
+
+  .loginForm {
+    display: block;
+    padding-top: 60px;
+    width: 40%;
+    margin: 0 auto;
+  }
+
+  .login-form {
+    width: 450px;
+  }
+
+  input[type="email"],
+  input[type="password"],
+  input[type="text"],
+  input[type="date"],
+  select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 15px;
+  }
+
+  .login-button {
+    background: #e50914;
+    color: white;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    font-size: 18px;
+    margin-top: 50px;
+  }
+
+  .submit-button {
+    background: #e50914;
+    color: white;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    font-size: 18px;
+    margin-top: 30px;
+  }
+
+  .registerBox {
+    display: block;
+    padding-top: 60px;
+    width: 40%;
+    margin: 0 auto;
+  }
+
+  .searchForm {
+    display: block;
+  }
 }
 
-.moviecard img {
-  width: 100%;
-  height: 100%;
-  border-radius: 5px;
-}
+@media screen and (max-width: 400px) {
+  .navbar {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    justify-content: center;
+    align-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+    width: 100%;
+    transition: all 0.5s;
+    position: relative;
+    z-index: 1;
+  }
+  .navbar-container {
+    margin: 0 auto;
+    max-width: 980px;
+    padding: 0 22px;
+    position: relative;
+  }
+  .navbar-items {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    grid-area: navbar;
+    display: grid;
+    list-style-type: none;
+    /*  background-color: #db0000;*/
+    grid-template-columns: repeat(1, 1fr);
+  }
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  .card a {
+    color: white;
+    text-decoration: none;
+  }
 
-.moviecard .options {
-  display: none;
-  position: relative;
-  width: 100%;
-}
+  li a {
+    color: rgb(168, 167, 167);
+  }
+  /*
+  p {
+    color: #ffffff;
+  }
+  */
+  .user {
+    align-content: center;
+    color: white;
+    /*Content - Width and height*/
+    width: 200px;
+    /*Border*/
+    border: 2px solid white;
+    /*Padding*/
+    padding: 10px;
+    /*Margin*/
+    margin: 100px auto 100px auto;
+  }
 
-.moviecard .options span {
-  position: absolute;
-  bottom: 8px;
-  left: -150px;
-}
+  .addUserCard {
+    font-size: 150px;
+    text-align: center;
+    /* width: 17vw; */
+  }
 
-.moviecard .options a:nth-child(3) {
-  left: 130px;
-}
+  .normal-form {
+    color: black;
+    background: white;
+    padding: 5rem;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
+    display: block;
+  }
 
-.moviecard:hover {
-  transform: scale(1.2);
-  color: black;
-}
+  .inner {
+    margin: 0 auto;
+  }
+  .container {
+    padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto;
+    grid-auto-flow: row;
+    padding-top: 50px;
+    align-items: start;
+    grid-row-gap: 50px;
+  }
+  .card {
+    align-self: center;
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    /* transition-delay: 200ms; */
+    border-radius: 5px; /* 5px rounded corners */
+    margin: 1vw;
+    /* width: 250px; */
+    background-color: #6d6d6d;
+  }
+  /* .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
+    transform: scale(1.2);
+    color: white;
+  } */
 
-.moviecard:hover .options {
-  color: white;
-  display: inline;
-}
+  .users-cards .card img {
+    width: 100%;
+    height: 50%;
+    border-radius: 5px 5px 0 0;
+  }
 
-.createBox form {
-  display: grid;
-  grid-template-columns: 300px;
-  grid-template-rows: auto;
-}
+  .info {
+    padding: 2px 16px;
+  }
 
-.createBox label {
-  grid-area: "label";
-}
+  .movies {
+    padding-top: 20px;
+  }
 
-.createBox label iput {
-  grid-area: "input";
-}
+  .movies ul {
+    list-style-type: none;
+    text-decoration: none;
+  }
 
-.createBox input {
-  grid-area: "input";
-  justify-self: center;
-}
+  .movieCards {
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-auto-rows: auto;
+  }
 
-.createBox select {
-  grid-area: "input";
-  justify-self: center;
-}
+  .moviecard {
+    color: black;
+    /*width: 255px;
+    height: 200px;*/
+    transition-delay: 200ms;
+    transition: 0.3s;
+  }
 
-.buttonContainer .button {
-  grid-area: "button";
-  justify-self: stretch;
-}
+  .moviecard img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+  }
 
-.loginForm {
-  display: block;
-  padding-top: 60px;
-  width: 40%;
-  margin: 0 auto;
-}
+  .moviecard .options {
+    display: none;
+    position: relative;
+    width: 100%;
+  }
 
-.login-form {
-  width: 450px;
-}
+  .moviecard .options span {
+    position: absolute;
+    bottom: 8px;
+    left: -150px;
+  }
 
-input[type="email"],
-input[type="password"],
-input[type="text"],
-input[type="date"],
-select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  font-size: 15px;
-}
+  .moviecard .options a:nth-child(3) {
+    left: 130px;
+  }
+  /*
+  .moviecard:hover {
+    transform: scale(1.2);
+    color: black;
+  } */
 
-.login-button {
-  background: #e50914;
-  color: white;
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  font-size: 18px;
-  margin-top: 50px;
-}
+  .moviecard .options {
+    color: white;
+    display: inline;
+  }
 
-.submit-button {
-  background: #e50914;
-  color: white;
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  font-size: 18px;
-  margin-top: 30px;
-}
+  .createBox form {
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: auto;
+  }
 
-.registerBox {
-  display: block;
-  padding-top: 60px;
-  width: 40%;
-  margin: 0 auto;
-}
+  .createBox label {
+    grid-area: "label";
+  }
 
-.searchForm {
-  display: block;
+  .createBox label iput {
+    grid-area: "input";
+  }
+
+  .createBox input {
+    grid-area: "input";
+    justify-self: center;
+  }
+
+  .createBox select {
+    grid-area: "input";
+    justify-self: center;
+  }
+
+  .buttonContainer .button {
+    grid-area: "button";
+    justify-self: stretch;
+  }
+
+  .loginForm {
+    display: block;
+    padding-top: 60px;
+    width: 40%;
+    margin: 0 auto;
+  }
+
+  .login-form {
+    width: 450px;
+  }
+
+  input[type="email"],
+  input[type="password"],
+  input[type="text"],
+  input[type="date"],
+  select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 15px;
+  }
+
+  .login-button {
+    background: #e50914;
+    color: white;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    font-size: 18px;
+    margin-top: 50px;
+  }
+
+  .submit-button {
+    background: #e50914;
+    color: white;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    font-size: 18px;
+    margin-top: 30px;
+  }
+
+  .registerBox {
+    display: block;
+    padding-top: 60px;
+    width: 40%;
+    margin: 0 auto;
+  }
+
+  .searchForm {
+    display: block;
+  }
 }

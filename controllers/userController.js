@@ -57,9 +57,9 @@ exports.getUser = (req, res) => {
 
 exports.editUser = (req, res) => {
   db.executeSql(
-    `UPDATE Customers SET Name= ${req.params.Name}, Password=${req.params
-      .password}, Gender=${req.params.gender}, DOB=${req.params.dob} Photo=${req
-      .params.photo} WHERE Email = ${req.params.email}`,
+    `UPDATE Customers SET Name= '${req.params.Name}', Password='${req.params
+      .password}', Gender='${req.params.gender}', DOB='${req.params
+      .dob}', 'Photo=${req.params.photo}' WHERE Email = '${req.params.email}'`,
     data => {
       console.log(req.params);
       res.redirect("/Users");

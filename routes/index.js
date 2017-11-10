@@ -81,5 +81,6 @@ router.get("/updateSubscriptionDate", userController.updateSubscriptionDate);
 router.get("/generateRandomMovies", movieController.generateRandomMovies);
 router.get("/generateViews", userController.generateViews);
 router.get("/Users/searchUser/", userController.search);
+router.get("/Movies/searchMovies/", movieController.search);
 
 module.exports = router;

@@ -8,6 +8,5 @@ block content
           .moviecard
             a(href=`/watch/${movie.MovieID}`)
               img(src="/img/Breaking-Bad.jpg", alt="")
-              if user.Role === 'Admin'
-                .options
-                  span #{movie.MovieName}
+              .options
+                span #{movie.MovieName}

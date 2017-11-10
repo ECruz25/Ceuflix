@@ -9,6 +9,10 @@ block content
         //-Hacer que automaticamente le ponga un id
         label(for="name") Movie Name
         input(type="text" name="name" required)
+        - console.log(genres)
+        select(name="genres")
+          each genre in genres
+            option(value=`${genre.Genre}`) #{genre.Genre}
         label(for="video") Video
           input(type="file", name="video" id="video" accept="video/mp4")
         label(for="")

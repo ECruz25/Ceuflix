@@ -78,11 +78,12 @@ exports.configureMovie = async (req, res, next) => {
 };
 
 exports.createMovie = (req, res) => {
-  console.log(req.body.userType, req.body.gender);
+  console.log(req.body);
   db.executeSql(
-    `INSERT INTO [Movie] (MovieID, MovieName, MovieVideo, ReleaseDate) VALUES
+    `INSERT INTO [Movie] (MovieID, MovieName, MovieVideo, ReleaseDate, MovieGenre) VALUES
     (${req.body.id}, '${req.body.name}', '${req.body
-      .video}',0,'${moment().format("YYYY-MM-DD hh:mm:ss")})`,
+      .video}',0,'${moment().format("YYYY-MM-DD hh:mm:ss")}, '${req.body
+      .genre}')`,
     data => {
       res.redirect("/");
       res.end();
@@ -91,7 +92,9 @@ exports.createMovie = (req, res) => {
 };
 
 exports.addMovie = (req, res) => {
-  res.render("createMovie", { title: "Add Movie" });
+  db.executeSql("SELECT * FROM [Genre]", data => {
+    res.render("createMovie", { title: "Add Movie", genres: data.recordset });
+  });
 };
 
 exports.editMovie = (req, res) => {
@@ -128,10 +131,15 @@ exports.generateRandomMovies = (req, res) => {
   res.send("/");
 };
 exports.search = (req, res) => {
+  console.log(req.query);
   db.executeSql(
-    `SELECT * FROM [Movies] WHERE MovieName LIKE '%${req.query.search}%'`,
+    `SELECT * FROM [Movie] WHERE MovieName LIKE '%${req.query.search}%'`,
     data => {
-      res.render("Users", { title: "Movies", movies: data.recordset });
+      res.render("movies", {
+        title: "Movies",
+        movies: data.recordset,
+        user: req.user
+      });
     }
   );
 };

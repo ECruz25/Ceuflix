@@ -18,12 +18,12 @@ html
             li
               a(href='/Users') Users
             li
-              a(href='/Logout') LogOut
+              a(href='http://desktop-hjrgroh/Reports_SQLSERVER/browse/') View Reports
             if title === 'Movies'
               li
                 .searchBar
-                  form(action="/movies/", method="GET" class="searchForm")
-                    input(type="text", class="btn-extended" placeholder="search" name="searchQuery")
+                  form(action="/movies/searchMovies/", method="GET" class="searchForm")
+                    input(type="text", class="btn-extended" placeholder="search" name="search")
                     .btn-search
             else if title === 'Users'
               li
@@ -32,7 +32,7 @@ html
                     input(type="text", class="btn-extended" placeholder="search" name="search")
                     .btn-search
             li
-              a(href=`/Users/${'Edwin'}`) Search
+              a(href='/Logout') LogOut
       block content
 
       block footer
